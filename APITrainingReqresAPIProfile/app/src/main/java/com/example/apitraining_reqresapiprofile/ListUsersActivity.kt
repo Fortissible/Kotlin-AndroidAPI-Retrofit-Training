@@ -27,11 +27,13 @@ class ListUsersActivity : AppCompatActivity() {
 
     private fun searchList(){
         val client = ApiConfig.getApiService().getUsersList("1","12")
+        listUsersActivityBinding.listUserLoading.visibility = View.VISIBLE
         client.enqueue(object : Callback<ListUserResponse> {
             override fun onResponse(
                 call: Call<ListUserResponse>,
                 response: Response<ListUserResponse>
             ) {
+                listUsersActivityBinding.listUserLoading.visibility = View.GONE
                 if (response.isSuccessful){
                     val responseBody = response.body()
                     if (responseBody != null) {
@@ -43,6 +45,7 @@ class ListUsersActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ListUserResponse>, t: Throwable) {
+                listUsersActivityBinding.listUserLoading.visibility = View.GONE
                 Log.e(ContentValues.TAG, "onFailure: ${t.message}")
             }
         })
