@@ -26,7 +26,7 @@ class ListUsersActivity : AppCompatActivity() {
     }
 
     private fun searchList(){
-        val client = ApiConfig.getApiService().getUsersList("1")
+        val client = ApiConfig.getApiService().getUsersList("1","12")
         client.enqueue(object : Callback<ListUserResponse> {
             override fun onResponse(
                 call: Call<ListUserResponse>,

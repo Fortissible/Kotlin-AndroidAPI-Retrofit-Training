@@ -4,8 +4,11 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.JsonWriter
 import android.util.Log
 import com.example.apitraining_reqresapiprofile.databinding.ActivityMainBinding
+import com.google.gson.JsonObject
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
